@@ -1,0 +1,287 @@
+﻿<!doctype html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Continuar para Inscrição</title>
+  <style>
+    :root{
+      --text:#111;
+      --muted:#6b7280;
+      --link:#1a73e8;        /* azul do botão/links */
+      --line:#e5e7eb;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif;
+      color:var(--text); background:#fff;
+      display:grid; place-items:center;
+    }
+    .wrap{
+      width:100%; max-width:720px;
+      padding:24px; text-align:center;
+    }
+    .cta-btn{
+      padding:12px 20px; border-radius:10px; border:0;
+      background:var(--link); color:#fff; font-weight:600; font-size:16px;
+      cursor:pointer; box-shadow:0 4px 14px rgba(26,115,232,.2);
+    }
+    .cta-btn:disabled{opacity:.7; cursor:default}
+    .legal{margin-top:16px; color:var(--muted); font-size:12px}
+    .links{margin-top:8px; font-size:13px}
+    .links a{color:var(--link); text-decoration:none}
+    .links a:hover{text-decoration:underline}
+    .sep{margin:0 8px; color:#cbd5e1}
+    .divider{height:1px;background:var(--line);width:220px;margin:20px auto 12px}
+    .cta-btn:focus-visible{outline:3px solid #93c5fd; outline-offset:2px}
+
+    /* ===== Modais (pop-ups) ===== */
+    .modal{
+      position:fixed; inset:0; display:none; align-items:center; justify-content:center;
+      background:rgba(17,24,39,.45); padding:20px; z-index:1000;
+    }
+    .modal.open{display:flex}
+    .modal__box{
+      background:#fff; color:#111; width:100%; max-width:860px; max-height:85vh;
+      border-radius:12px; box-shadow:0 20px 60px rgba(0,0,0,.2); overflow:auto; padding:22px 20px 24px;
+      text-align:left;
+    }
+    .modal__header{display:flex; justify-content:space-between; align-items:center; gap:12px; margin-bottom:6px}
+    .modal__title{margin:0; font-size:18px}
+    .modal__close{
+      border:0; background:#f3f4f6; border-radius:8px; padding:8px 10px; cursor:pointer; font-weight:600;
+    }
+    .modal__close:hover{background:#e5e7eb}
+    .modal h2{font-size:16px; margin:18px 0 6px}
+    .modal p, .modal li{font-size:14px; line-height:1.6; color:#222}
+    .muted{color:#6b7280; font-size:12px}
+    .list{margin:8px 0 0 18px}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <button id="go" class="cta-btn" type="button">Prosseguir para inscrição</button>
+
+    <div class="legal">Todos os direitos reservados. <span id="brand">Indeniza hoje</span> © <span id="year"></span></div>
+    <div class="divider" aria-hidden="true"></div>
+    <div class="links">
+      <a href="#" id="open-priv" rel="nofollow">Política de Privacidade</a><span class="sep">|</span>
+      <a href="#" id="open-termos" rel="nofollow">Termos de Uso</a><span class="sep">|</span>
+      <a href="#" id="open-serv" rel="nofollow">Termos de Serviços</a>
+    </div>
+
+    <!-- Fallback sem JS -->
+    <noscript>
+      <p class="links" style="margin-top:12px">
+        JavaScript desativado. <a href="https://www.vunesp.com.br/PMES2502">Clique aqui para ir à inscrição</a>.
+      </p>
+    </noscript>
+  </div>
+
+  <!-- ===== Modal: Política de Privacidade ===== -->
+  <div class="modal" id="modal-priv" role="dialog" aria-modal="true" aria-labelledby="t-priv">
+    <div class="modal__box">
+      <div class="modal__header">
+        <h1 class="modal__title" id="t-priv">Política de Privacidade</h1>
+        <button class="modal__close" data-close>Fechar</button>
+      </div>
+      <p class="muted">Última atualização: <span class="js-date"></span></p>
+
+      <p><strong>Quem somos.</strong> Este site (“<b>Indeniza hoje</b>”) é um portal independente de conteúdo informativo e materiais de estudo.
+        Não temos vínculo, patrocínio ou endosso da Polícia Militar do Estado de São Paulo (PM/SP), Vunesp ou qualquer órgão público.</p>
+
+      <h2>Dados que coletamos</h2>
+      <ul class="list">
+        <li><b>Navegação:</b> IP, dispositivo/navegador, páginas acessadas, data e hora (segurança, antifraude e métricas).</li>
+        <li><b>Cookies essenciais e de desempenho:</b> manter sessão, lembrar preferências e medir acesso.</li>
+        <li><b>Contato (opcional):</b> nome, e-mail e mensagem quando você nos escreve.</li>
+        <li><b>Compra de eBook (opcional):</b> dados tratados por plataformas de pagamento parceiras. Não armazenamos dados completos de cartão.</li>
+      </ul>
+
+      <h2>Base legal (LGPD)</h2>
+      <p>Tratamos dados com fundamento em: (a) <b>execução de contrato</b> (entrega do eBook/atendimento),
+        (b) <b>legítimo interesse</b> (segurança e métricas) e (c) <b>consentimento</b> quando aplicável (ex.: comunicações, cookies não essenciais).</p>
+
+      <h2>Sobre editais da PM/SP e links externos</h2>
+      <p>O <b>edital oficial</b> é publicado por órgãos competentes (ex.: Vunesp/PM/SP). Fornecemos links para conveniência, mas o conteúdo pode mudar sem aviso.
+        Recomendamos conferir <b>sempre</b> a versão mais recente diretamente na fonte oficial.</p>
+
+      <h2>Sobre o eBook (material opcional)</h2>
+      <p>O eBook é material <b>complementar</b>, <b>não obrigatório</b> e <b>não substitui</b> o edital oficial. Não garantimos aprovação.
+        Pagamentos são processados por terceiro (gateway/plataforma).</p>
+
+      <h2>Compartilhamento</h2>
+      <p>Podemos compartilhar dados com provedores de hospedagem/segurança, análise de tráfego, plataformas de pagamento/afiliados e atendimento por e-mail, todos com padrões adequados.</p>
+
+      <h2>Direitos do titular</h2>
+      <p>Você pode solicitar confirmação de tratamento, acesso, correção, portabilidade, anonimização/eliminação e revogação de consentimento. Contato: <b>[seu e-mail de suporte]</b>.</p>
+
+      <h2>Retenção, segurança e menores</h2>
+      <p>Mantemos dados pelo tempo necessário às finalidades e obrigações legais; adotamos controles técnicos e organizacionais. Conteúdo não direcionado a menores de 13 anos.</p>
+
+      <h2>Alterações</h2>
+      <p>Podemos atualizar esta Política a qualquer momento; a versão vigente é a desta página.</p>
+    </div>
+  </div>
+
+  <!-- ===== Modal: Termos de Uso ===== -->
+  <div class="modal" id="modal-termos" role="dialog" aria-modal="true" aria-labelledby="t-termos">
+    <div class="modal__box">
+      <div class="modal__header">
+        <h1 class="modal__title" id="t-termos">Termos de Uso</h1>
+        <button class="modal__close" data-close>Fechar</button>
+      </div>
+      <p class="muted">Última atualização: <span class="js-date"></span></p>
+
+      <h2>1. Natureza do serviço</h2>
+      <p>O site disponibiliza informações, dicas de estudo e materiais <b>independentes</b> sobre o concurso da PM/SP. Não representamos PM/SP, Vunesp ou qualquer órgão público.</p>
+
+      <h2>2. Editais e informações oficiais</h2>
+      <p>Utilizamos fontes públicas e oficiais, mas <b>alterações podem ocorrer</b>. O <b>edital oficial</b> é a única referência válida para regras do concurso; verifique sempre nos canais oficiais.</p>
+
+      <h2>3. Conteúdo e limitações</h2>
+      <p>Conteúdos são oferecidos “no estado em que se encontram”, sem garantias de aprovação. Não nos responsabilizamos por perdas decorrentes do uso das informações, inclusive prazos, taxas e inscrições.</p>
+
+      <h2>4. Uso permitido</h2>
+      <ul class="list">
+        <li>É vedado burlar sistemas, distribuir malware ou prejudicar terceiros.</li>
+        <li>É proibida a cópia/redistribuição de conteúdos sem autorização.</li>
+      </ul>
+
+      <h2>5. Propriedade intelectual</h2>
+      <p>Textos, layouts, marcas e materiais (incluindo eBook) pertencem ao site ou licenciantes. Reprodução sem autorização é proibida.</p>
+
+      <h2>6. Links de terceiros</h2>
+      <p>Links para Vunesp/PM/SP e outros são fornecidos para conveniência. Não controlamos seu conteúdo ou políticas.</p>
+
+      <h2>7. Alterações e encerramento</h2>
+      <p>Podemos alterar conteúdos/funcionalidades e suspender ou encerrar o acesso por motivos técnicos, legais ou de segurança.</p>
+
+      <h2>8. Contato e foro</h2>
+      <p>Dúvidas: <b>[seu e-mail de suporte]</b>. Este contrato é regido pelas leis brasileiras. Foro: <b>[sua cidade/UF]</b>, salvo normas de proteção do consumidor.</p>
+    </div>
+  </div>
+
+  <!-- ===== Modal: Termos de Serviços (eBook) ===== -->
+  <div class="modal" id="modal-serv" role="dialog" aria-modal="true" aria-labelledby="t-serv">
+    <div class="modal__box">
+      <div class="modal__header">
+        <h1 class="modal__title" id="t-serv">Termos de Serviços</h1>
+        <button class="modal__close" data-close>Fechar</button>
+      </div>
+      <p class="muted">Última atualização: <span class="js-date"></span></p>
+
+      <h2>1. Produto digital</h2>
+      <p>O eBook é um <b>produto digital</b> de apoio ao estudo (ex.: PDF/área do cliente) e <b>não substitui</b> o edital oficial da PM/SP.</p>
+
+      <h2>2. Compra e entrega</h2>
+      <ul class="list">
+        <li>Compra processada por <b>parceiro de pagamento</b> (gateway/plataforma).</li>
+        <li>Após confirmação, o acesso ou link de download é enviado ao e-mail informado ou liberado na área do cliente.</li>
+      </ul>
+
+      <h2>3. Licença de uso</h2>
+      <p>Licença <b>pessoal, intransferível e não exclusiva</b>. Proibido revender, compartilhar publicamente ou disponibilizar a terceiros.</p>
+
+      <h2>4. Atualizações editoriais</h2>
+      <p>Se houver atualização relevante, poderemos disponibilizá-la a compradores por período razoável, sem garantia por prazo indeterminado.</p>
+
+      <h2>5. Reembolso (Direito de Arrependimento)</h2>
+      <p>Nos termos do <b>art. 49 do CDC</b>, é possível solicitar cancelamento em até 7 dias da compra. Envie e-mail para <b>[seu e-mail de suporte]</b> com assunto “Cancelamento eBook” e dados do pedido; o estorno ocorrerá pelo mesmo meio de pagamento.</p>
+
+      <h2>6. Preços, tributos e notas</h2>
+      <p>Preços podem mudar sem aviso até a confirmação da compra. Tributos aplicáveis serão informados no checkout. Notas/recibos são emitidos pela plataforma de pagamento quando disponível.</p>
+
+      <h2>7. Suporte e responsabilidade</h2>
+      <p>Atendimento por e-mail: <b>[seu e-mail de suporte]</b> — <b>[horário de atendimento]</b>. O eBook é material complementar e não garante aprovação; siga sempre o edital oficial.</p>
+
+      <h2>8. Disposições finais</h2>
+      <p>Podemos alterar estes Termos; a versão vigente é a desta página.</p>
+    </div>
+  </div>
+
+  <script>
+    // ===== CONFIGURE AQUI =====
+    const REDIRECT_URL = "https://www.vunesp.com.br/PMES2502"; // coloque a URL final da inscrição
+    const CTA_TEXT     = "Prosseguir para inscrição";           // texto do botão
+    const BRAND_NAME   = "Conscurso PM-SP";                       // sua marca
+    // ==========================
+
+    // >>> ADICIONADO: encaminhar parâmetros da URL atual para o link de redirecionamento <<<
+    function withForwardedParams(baseUrl){
+      try{
+        const target = new URL(baseUrl, window.location.href);
+        const current = new URL(window.location.href);
+        current.searchParams.forEach((value, key) => {
+          if (!target.searchParams.has(key)) {
+            target.searchParams.append(key, value);
+          }
+        });
+        return target.toString();
+      }catch(e){
+        return baseUrl;
+      }
+    }
+    // <<< FIM DO BLOCO ADICIONADO >>>
+
+    const btn = document.getElementById("go");
+    btn.textContent = CTA_TEXT;
+    document.getElementById("brand").textContent = BRAND_NAME;
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Redirecionamento
+    btn.addEventListener("click", () => {
+      if (btn.disabled) return;
+      btn.disabled = true; btn.textContent = "Carregando…";
+      setTimeout(() => { window.location.href = withForwardedParams(REDIRECT_URL); }, 250);
+    });
+
+    // ====== Modais: abrir/fechar ======
+    const modals = {
+      priv:  document.getElementById('modal-priv'),
+      termos:document.getElementById('modal-termos'),
+      serv:  document.getElementById('modal-serv')
+    };
+    const openers = {
+      priv:  document.getElementById('open-priv'),
+      termos:document.getElementById('open-termos'),
+      serv:  document.getElementById('open-serv')
+    };
+
+    // data de "última atualização" auto
+    document.querySelectorAll('.js-date').forEach(el=>{
+      const d = new Date(); el.textContent = d.toLocaleDateString('pt-BR');
+    });
+
+    function openModal(m){
+      m.classList.add('open');
+      document.body.style.overflow = 'hidden';
+      const closeBtn = m.querySelector('[data-close]');
+      closeBtn && closeBtn.focus();
+    }
+    function closeModal(m){
+      m.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    openers.priv.addEventListener('click', (e)=>{e.preventDefault(); openModal(modals.priv);});
+    openers.termos.addEventListener('click', (e)=>{e.preventDefault(); openModal(modals.termos);});
+    openers.serv.addEventListener('click', (e)=>{e.preventDefault(); openModal(modals.serv);});
+
+    // fechar por botão, clique no fundo e tecla ESC
+    document.querySelectorAll('.modal [data-close]').forEach(b=>{
+      b.addEventListener('click', ()=> closeModal(b.closest('.modal')));
+    });
+    Object.values(modals).forEach(m=>{
+      m.addEventListener('click', (ev)=>{ if(ev.target === m) closeModal(m); });
+    });
+    window.addEventListener('keydown', (ev)=>{
+      if(ev.key === 'Escape'){
+        Object.values(modals).forEach(m=> m.classList.contains('open') && closeModal(m));
+      }
+    });
+  </script>
+</body>
+</html>
